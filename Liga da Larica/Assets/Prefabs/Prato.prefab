@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682915918986810031}
   - component: {fileID: 3014503784824701321}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5296645001173864392}
   - component: {fileID: 8087790223276131259}
   - component: {fileID: 2329155220306773029}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prato
   m_TagString: Prato
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3900906548147383871}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
