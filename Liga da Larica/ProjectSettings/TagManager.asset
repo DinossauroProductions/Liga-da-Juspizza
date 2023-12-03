@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Prato
+  - Cliente
+  - Mesa
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Pratos
+  - "Selecion\xE1veis"
   - Water
   - UI
   - 

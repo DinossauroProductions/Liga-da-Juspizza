@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 719555620287266085}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Slot_prato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  slot: {fileID: 0}
+  plateSlot: {fileID: 0}
 --- !u!50 &8446954991693435587
 Rigidbody2D:
   serializedVersion: 4
@@ -106,7 +106,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &583247215519490178
 BoxCollider2D:
@@ -151,7 +151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1 &7578257090968506235
 GameObject:
@@ -179,8 +179,8 @@ Transform:
   m_GameObject: {fileID: 7578257090968506235}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 0.0054, z: 0}
-  m_LocalScale: {x: 0.29393023, y: 0.2849731, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.29, y: 0.29, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7769943867458599651}

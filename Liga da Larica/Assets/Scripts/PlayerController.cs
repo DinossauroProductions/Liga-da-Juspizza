@@ -25,9 +25,11 @@ public class PlayerController : MonoBehaviour
 
     // Reference to the slot for holding picked item.
     [SerializeField]
-    private Transform slot;
+    private Transform plateSlot;
     // Reference to the currently held item.
     private PratoScript pickedItem = null;
+    private Transform clientSlot;
+    private ClienteScript followingClient = null;
 
     // Start is called before the first frame update
     void Start()
@@ -43,9 +45,6 @@ public class PlayerController : MonoBehaviour
         ReceberInput();
         ProcessarInput();
 
-        
-
-
     }
 
     private void PickItem(PratoScript item)
@@ -58,7 +57,7 @@ public class PlayerController : MonoBehaviour
         item.RigidBody.velocity = Vector2.zero;
         item.RigidBody.angularVelocity = 0;
         // Set Slot as a parent
-        item.transform.SetParent(slot);
+        item.transform.SetParent(plateSlot);
         // Reset position and rotation
         item.transform.localPosition = Vector3.zero;
         item.transform.localEulerAngles = Vector3.zero;
@@ -72,8 +71,29 @@ public class PlayerController : MonoBehaviour
         item.transform.SetParent(null);
         // Enable rigidbody
         item.RigidBody.isKinematic = false;
-        // Add force to throw item a little bit
-        item.RigidBody.AddForce(item.transform.forward * 2, ForceMode2D.Impulse);
+    }
+
+    private void leadClient(ClienteScript cliente){
+        // Assign reference
+        followingClient = cliente;
+        // Disable rigidbody and reset velocities
+        cliente.RigidBody.velocity = Vector2.zero;
+        // Set Slot as a parent
+        cliente.transform.SetParent(clientSlot);
+
+        cliente.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+    }
+
+    public void DropClient(ClienteScript cliente)
+    {
+        //Debug.Log("Cliente \"entregue\"");
+        // Remove reference
+        followingClient = null;
+        // Remove parent
+        cliente.transform.SetParent(null);
+        // Enable rigidbody
+        //cliente.RigidBody.isKinematic = false;
+        cliente.gameObject.layer = LayerMask.NameToLayer("Selecionáveis");
     }
 
     void ProcessarInput(){
@@ -118,31 +138,54 @@ public class PlayerController : MonoBehaviour
         // Utilizar o vetor para olhar para frente em busca de um objeto para pegar
         if(action_button){
             action_button = false;
-            //Debug.Log("Botão de ação processado");
 
-            if (pickedItem != null){
-                //Debug.Log("Item dropado");
-                DropItem(pickedItem);
+            if(pickedItem != null || followingClient != null){
+                if(pickedItem != null)
+                    DropItem(pickedItem);
+                if(followingClient != null)
+                    DropClient(followingClient);
             }
             else{
                 //Atira um raycast para verificar se há itens
-                RaycastHit2D hit;
-                hit = Physics2D.Raycast(transform.position, anguloAnterior);
-                //Debug.Log("Procurando itens: "+hit.Serialize());
-                if(hit){
-                    if (hit.collider.CompareTag("Prato")){
-                        //Debug.Log("Item encontrado, procurando item do tipo pegável: "+hit.Serialize());
-                        var pickable = hit.collider.GetComponent<PratoScript>();
-                        //Debug.Log("Item pego");
-                        PickItem(pickable);
-                    
+                RaycastHit2D[] hit;
+                hit = Physics2D.RaycastAll(transform.position, anguloAnterior);
+
+                // Verifica se atingiu algo
+                if (!(hit.Length == 0))
+                {
+                    for (int i = 0; i < hit.Length; i++)
+                    {
+                        //Verifica se foi próximo
+                        if(hit[i].distance < 2f){
+                            //Verifica se foi um prato
+                            if (hit[i].collider.CompareTag("Prato")){
+                                var pickable = hit[i].collider.GetComponent<PratoScript>();
+                                PickItem(pickable);
+                            }
+                            //Verifica se foi um cliente
+                            else if (hit[i].collider.CompareTag("Cliente")){
+                                var pickable = hit[i].collider.GetComponent<ClienteScript>();
+                                leadClient(pickable);
+                            }
+                        }
+                        
                     }
+                
                 }
+
             }
         }
 
         if(pickedItem != null){
             pickedItem.GetComponent<Transform>().position = transform.position + (Vector3) anguloAnterior * speed * 0.2f + new Vector3(0, 0, -1);
+        }
+        if(followingClient != null){
+            Transform posicaoCliente = followingClient.GetComponent<Transform>();
+            Vector2 distancia = transform.position - posicaoCliente.position;
+            if(distancia.magnitude > 2f){
+                //Debug.Log(distancia);
+                posicaoCliente.position += (Vector3) distancia * (3f * Time.deltaTime);
+            }
         }
     }
 

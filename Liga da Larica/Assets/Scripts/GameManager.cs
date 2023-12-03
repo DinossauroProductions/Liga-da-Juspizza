@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class CozinhaScript : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject pratoPrefab;
@@ -11,8 +13,6 @@ public class CozinhaScript : MonoBehaviour
     public ArrayList pratos;
 
     private float counter;
-
-    private static Vector3 distancia = new Vector3(0, -1.6f, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,7 @@ public class CozinhaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //adicionar os pratos
         counter += Time.deltaTime;
         if(counter >= 2){
 
@@ -34,9 +35,11 @@ public class CozinhaScript : MonoBehaviour
 
             if(pratos.Count < 6){
 
-                Vector3 posição = new Vector3(-7.5f, 4.1f, 0) + distancia * pratos.Count;
-
-                GameObject pratoAdicionado = Instantiate(pratoPrefab, posição, Quaternion.identity);
+                GameObject pratoAdicionado = Instantiate(
+                    pratoPrefab, 
+                    determinarPosicaoPrato((uint)Math.Abs(pratos.Count)), 
+                    Quaternion.identity
+                    );
 
                 pratos.Add(pratoAdicionado);
 
@@ -46,5 +49,11 @@ public class CozinhaScript : MonoBehaviour
             }
 
         }
+
+        //adicionar os clientes
+    }
+
+    private Vector2 determinarPosicaoPrato(uint n){
+        return new Vector2(-7.5f, 4.1f + n * -1.6f);
     }
 }
