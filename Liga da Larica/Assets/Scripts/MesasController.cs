@@ -9,7 +9,7 @@ public class MesasController : MonoBehaviour
 
     public ArrayList mesas;
 
-
+    //public Inumerable
 
     // Start is called before the first frame update
     void Start(){
@@ -31,7 +31,7 @@ public class MesasController : MonoBehaviour
                 
             }
         }
-        //Debug.Log(mesas.Serialize());
+        //Debug.Log(mesas.Serialize());  Inumerable
     }
 
     // Update is called once per frame

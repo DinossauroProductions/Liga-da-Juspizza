@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private Transform plateSlot;
     // Reference to the currently held item.
     private PratoScript pickedItem = null;
+    [SerializeField]
     private Transform clientSlot;
     private ClienteScript followingClient = null;
 

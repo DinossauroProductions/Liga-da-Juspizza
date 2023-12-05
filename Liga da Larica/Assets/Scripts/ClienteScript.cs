@@ -37,18 +37,21 @@ public class ClienteScript : MonoBehaviour
 
     }
 
-    // SIMPLESMENTE NÃO FUNCIONA!!!
-    private void OnTriggerEnter (Collider other){
-        Debug.Log("Colisão");
-        if(other.CompareTag("Mesa")){
-            Debug.Log("Colisão com Mesa");
-            if(transform.parent != null){
+    public void colidirComMesa(MesaScript mesa){
 
-                transform.parent.GetComponent<PlayerController>().DropClient(this);
-                other.GetComponent<MesaScript>().ocupado = true;
-                transform.position = other.transform.position + new Vector3(0, 1f, 0);
-            }
-            
+        Debug.Log("Colisão recebida");
+
+        if(transform.parent != null){
+
+            //Debug.Log("transfowmda");
+
+            transform.parent.parent.GetComponent<PlayerController>().DropClient(this);
+            mesa.GetComponent<MesaScript>().ocupado = true;
+            transform.position = mesa.transform.position + new Vector3(0, 1f, 0);
         }
+        
+        
     }
+
+    
 }

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3405363991567939566}
-  - component: {fileID: 457525938541437415}
   - component: {fileID: 8408598516245188579}
   - component: {fileID: 6753099047804443605}
   - component: {fileID: 2665258088536271021}
@@ -36,19 +35,6 @@ Transform:
   - {fileID: 7143960423386771184}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &457525938541437415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289656069023796045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 651834559ffbebde89f081657aaef099, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ocupado: 0
 --- !u!50 &8408598516245188579
 Rigidbody2D:
   serializedVersion: 4
@@ -182,11 +168,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7143960423386771184}
-  - component: {fileID: 5566845432161786010}
+  - component: {fileID: 8977691086837563627}
   - component: {fileID: 3993925463364971893}
-  m_Layer: 2
+  - component: {fileID: 3955838588164256641}
+  m_Layer: 3
   m_Name: "Colis\xE3oMesa"
-  m_TagString: Mesa
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +193,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3405363991567939566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &5566845432161786010
+--- !u!50 &8977691086837563627
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -220,8 +207,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -278,3 +265,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &3955838588164256641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8600660087008205221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651834559ffbebde89f081657aaef099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ocupado: 0
