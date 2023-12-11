@@ -50,28 +50,29 @@ public class PlayerController : MonoBehaviour
 
     private void PickItem(PratoScript item)
     {
-        Debug.Log("Pickup");
+        //Debug.Log("Pickup");
         // Assign reference
         pickedItem = item;
         // Disable rigidbody and reset velocities
-        item.RigidBody.isKinematic = true;
-        item.RigidBody.velocity = Vector2.zero;
-        item.RigidBody.angularVelocity = 0;
+        //tem.RigidBody.isKinematic = true;
+        //item.RigidBody.velocity = Vector2.zero;
         // Set Slot as a parent
         item.transform.SetParent(plateSlot);
         // Reset position and rotation
-        item.transform.localPosition = Vector3.zero;
-        item.transform.localEulerAngles = Vector3.zero;
+
+        item.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
     }
-    private void DropItem(PratoScript item)
+    public void DropItem(PratoScript item)
     {
-        Debug.Log("Drop");
+        //Debug.Log("Drop prato");
         // Remove reference
         pickedItem = null;
         // Remove parent
         item.transform.SetParent(null);
         // Enable rigidbody
-        item.RigidBody.isKinematic = false;
+        //item.RigidBody.isKinematic = false;
+        item.gameObject.layer = LayerMask.NameToLayer("Selecionáveis");
+        item.checarMesa();
     }
 
     private void leadClient(ClienteScript cliente){
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
         followingClient = cliente;
         // Disable rigidbody and reset velocities
         cliente.RigidBody.velocity = Vector2.zero;
+        cliente.RigidBody.isKinematic = false;
         // Set Slot as a parent
         cliente.transform.SetParent(clientSlot);
 
@@ -93,7 +95,8 @@ public class PlayerController : MonoBehaviour
         // Remove parent
         cliente.transform.SetParent(null);
         // Enable rigidbody
-        //cliente.RigidBody.isKinematic = false;
+        cliente.RigidBody.velocity = Vector2.zero;
+        cliente.RigidBody.isKinematic = false;
         cliente.gameObject.layer = LayerMask.NameToLayer("Selecionáveis");
     }
 
@@ -162,11 +165,13 @@ public class PlayerController : MonoBehaviour
                             if (hit[i].collider.CompareTag("Prato")){
                                 var pickable = hit[i].collider.GetComponent<PratoScript>();
                                 PickItem(pickable);
+                                break;
                             }
                             //Verifica se foi um cliente
                             else if (hit[i].collider.CompareTag("Cliente")){
                                 var pickable = hit[i].collider.GetComponent<ClienteScript>();
                                 leadClient(pickable);
+                                break;
                             }
                         }
                         

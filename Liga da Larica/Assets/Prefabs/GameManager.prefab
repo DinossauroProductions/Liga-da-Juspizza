@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pratoPrefab: {fileID: 3900906548147383871, guid: c5bd89b006fbed1288e0b0ffd312296e, type: 3}
+  clientePrefab: {fileID: 2078260326529680718, guid: c20e1b25435ffef5aadf8fd0c6b15d35, type: 3}

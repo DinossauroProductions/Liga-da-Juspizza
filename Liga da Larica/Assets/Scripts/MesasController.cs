@@ -7,7 +7,7 @@ using UnityEngine;
 public class MesasController : MonoBehaviour
 {
 
-    public ArrayList mesas;
+    public static ArrayList mesas;
 
     //public Inumerable
 

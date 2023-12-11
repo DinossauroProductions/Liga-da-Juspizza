@@ -7,6 +7,8 @@ public class MesaScript : MonoBehaviour
 
     public bool ocupado = false;
 
+    public bool servida = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +23,12 @@ public class MesaScript : MonoBehaviour
 
     private void OnTriggerEnter2D (Collider2D other){
         //Debug.Log("Colisao");
-        if(other.CompareTag("Cliente")){
-            //Debug.Log("Colisão com cliente");
-            other.GetComponent<ClienteScript>().colidirComMesa(this);
-        }
+        if(!ocupado)
+            if(other.CompareTag("Cliente")){
+                //Debug.Log("Colisão com cliente");
+                other.GetComponent<ClienteScript>().colidirComMesa(this);
+            }
     }
+
+    
 }
