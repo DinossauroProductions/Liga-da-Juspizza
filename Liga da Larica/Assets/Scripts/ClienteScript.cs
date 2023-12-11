@@ -54,7 +54,7 @@ public class ClienteScript : MonoBehaviour
 
             transform.parent.parent.GetComponent<PlayerController>().DropClient(this);
             mesa.GetComponent<MesaScript>().ocupado = true;
-            transform.position = mesa.transform.position + new Vector3(0, 1f, 0);
+            transform.position = mesa.transform.position + new Vector3(0, 1f, 1f);
 
             GetComponent<Rigidbody2D>().simulated = false;
         }
