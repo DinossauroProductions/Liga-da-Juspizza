@@ -683,14 +683,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Liga da Larica
+  metroPackageName: Liga da Juspizza
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Liga da Larica
+  metroApplicationDescription: Liga da Juspizza
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
