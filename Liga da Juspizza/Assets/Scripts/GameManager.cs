@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject pratoPrefab;
     [SerializeField] private GameObject clientePrefab; 
-    private ArrayList pratos;
+    private static GameObject[] pratos;
     public ArrayList clientes;
 
     private float pratoContador, pratoContadorMax;
@@ -23,10 +23,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pratos = new ArrayList
-        {
-            Capacity = 6
-        };
+        pratos = new GameObject[6];
         pratoContador = 0;
         pratoContadorMax = 2;
 
@@ -44,25 +41,27 @@ public class GameManager : MonoBehaviour
         pratoContador += Time.fixedDeltaTime;
         if(pratoContador >= pratoContadorMax){
 
+            Debug.Log("Tentar spawnar prato");
+            
             pratoContador = 0;
             pratoContadorMax = RandomNumberGenerator.GetInt32(6) + 6;
 
-            if(pratos.Count < pratos.Capacity){
+            for(int i = 0; i < pratos.Length; i++){
 
-                GameObject pratoAdicionado = Instantiate(
-                    pratoPrefab, 
-                    determinarPosicaoPrato((uint)Math.Abs(pratos.Count)), 
-                    Quaternion.identity
+                if(pratos[i] == null){
+
+                    GameObject pratoAdicionado = Instantiate(
+                        pratoPrefab, 
+                        determinarPosicaoPrato((uint) i), 
+                        Quaternion.identity
                     );
 
-                pratos.Add(pratoAdicionado);
+                    pratos[i] = pratoAdicionado;
+                    break;
+                }
 
             }
-            else{
-                //Debug.Log("Os pratos estão lotados!!");
-            }
 
-            
         }
 
         clienteContador += Time.fixedDeltaTime;
@@ -79,6 +78,21 @@ public class GameManager : MonoBehaviour
 
         }
         //adicionar os clientes
+    }
+
+    public static void removerPrato(GameObject prato){
+
+        for(int i = 0; i < pratos.Length; i++){
+
+            if(pratos[i] == prato){
+
+                pratos[i] = null;
+                return;
+
+            }
+
+        }
+
     }
 
     private Vector2 determinarPosicaoPrato(uint n){

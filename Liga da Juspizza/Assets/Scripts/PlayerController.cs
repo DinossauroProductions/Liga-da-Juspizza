@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -80,7 +82,7 @@ public class PlayerController : MonoBehaviour
         followingClient = cliente;
         // Disable rigidbody and reset velocities
         cliente.RigidBody.velocity = Vector2.zero;
-        cliente.RigidBody.isKinematic = false;
+        //cliente.RigidBody.isKinematic = false;
         // Set Slot as a parent
         cliente.transform.SetParent(clientSlot);
 
@@ -96,7 +98,7 @@ public class PlayerController : MonoBehaviour
         cliente.transform.SetParent(null);
         // Enable rigidbody
         cliente.RigidBody.velocity = Vector2.zero;
-        cliente.RigidBody.isKinematic = false;
+        //cliente.RigidBody.isKinematic = false;
         cliente.gameObject.layer = LayerMask.NameToLayer("Selecionáveis");
     }
 
@@ -165,6 +167,7 @@ public class PlayerController : MonoBehaviour
                             if (hit[i].collider.CompareTag("Prato")){
                                 var pickable = hit[i].collider.GetComponent<PratoScript>();
                                 PickItem(pickable);
+                                GameManager.removerPrato(pickable.gameObject);
                                 break;
                             }
                             //Verifica se foi um cliente
