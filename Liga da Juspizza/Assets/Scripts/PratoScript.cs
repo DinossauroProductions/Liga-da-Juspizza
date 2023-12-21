@@ -13,6 +13,12 @@ public class PratoScript : MonoBehaviour
     private Rigidbody2D rigidBody;
     public Rigidbody2D RigidBody => rigidBody;
 
+    [SerializeField]
+    private Sprite pratoSujoSprite;
+
+    public bool estaSujo = false;
+    public bool servido = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,23 +34,27 @@ public class PratoScript : MonoBehaviour
     void Update()
     {
 
+
         
     }
 
     public void checarMesa(){
 
+        
         Collider2D[] colisoes = {};
             
         //ContactFilter2D filtro = new ContactFilter2D();
         //filtro.SetLayerMask(LayerMask.GetMask("Ignore Raycast"));
 
-         colisoes = Physics2D.OverlapCircleAll(transform.position, GetComponent<CircleCollider2D>().radius, 0b0000000000000000000000000100);
+        colisoes = Physics2D.OverlapCircleAll(transform.position, GetComponent<CircleCollider2D>().radius, 0b0000000000000000000000000100);
 
 
         for(int i = 0; i < colisoes.Length; i++){
             if(colisoes[i].gameObject.CompareTag("Mesa")){
 
-                if(colisoes[i].GetComponentInChildren<MesaScript>().ocupado == false){
+                MesaScript mesa = colisoes[i].GetComponentInChildren<MesaScript>();
+
+                if(mesa.ocupado == false || mesa.servida == true){
                     continue;
                 }
 
@@ -56,14 +66,29 @@ public class PratoScript : MonoBehaviour
                 transform.SetParent(colisoes[i].transform);
                 transform.position = new Vector3(colisoes[i].transform.position.x, colisoes[i].transform.position.y+0.1f, 0);
 
-                GetComponent<Rigidbody2D>().simulated = false;
+                //GetComponent<Rigidbody2D>().simulated = false;
 
                 //dizer para a mesa que ela foi servida!
-                colisoes[i].transform.GetComponentInChildren<MesaScript>().servida = true;
+                mesa.servida = true;
+                servido = true;
 
             }
         }  
         
+    }
+
+    public void ficarSujo(){
+
+        estaSujo = true;
+        GetComponentInChildren<SpriteRenderer>().sprite = pratoSujoSprite;
+
+    }
+
+    public void sumir(){
+
+        transform.parent.GetComponentInChildren<MesaScript>().servida = false;
+        Destroy(gameObject);
+
     }
 
 

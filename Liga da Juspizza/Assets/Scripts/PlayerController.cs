@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool up = false, down = false, left = false, right = false, action_button = false;
 
     [SerializeField] 
-    private float speed = 40f;
+    private float speed = 45f;
 
     //[SerializeField] private ArrayList r_pratos;
 
@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Transform clientSlot;
     private ClienteScript followingClient = null;
+
+    private bool debug = false;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
         ProcessarInput();
 
     }
+
 
     private void PickItem(PratoScript item)
     {
@@ -102,6 +105,8 @@ public class PlayerController : MonoBehaviour
         cliente.gameObject.layer = LayerMask.NameToLayer("Selecionáveis");
     }
 
+    
+
     void ProcessarInput(){
 
         angulo = Vector2.zero;
@@ -145,12 +150,13 @@ public class PlayerController : MonoBehaviour
         if(action_button){
             action_button = false;
 
-            if(pickedItem != null || followingClient != null){
-                if(pickedItem != null)
-                    DropItem(pickedItem);
-                if(followingClient != null)
-                    DropClient(followingClient);
+            if(pickedItem != null){
+                DropItem(pickedItem);   
             }
+            else if(followingClient != null){
+                DropClient(followingClient);
+            }
+            
             else{
                 //Atira um raycast para verificar se há itens
                 RaycastHit2D[] hit;
@@ -159,16 +165,28 @@ public class PlayerController : MonoBehaviour
                 // Verifica se atingiu algo
                 if (!(hit.Length == 0))
                 {
+
+
                     for (int i = 0; i < hit.Length; i++)
                     {
                         //Verifica se foi próximo
                         if(hit[i].distance < 2f){
                             //Verifica se foi um prato
                             if (hit[i].collider.CompareTag("Prato")){
+
                                 var pickable = hit[i].collider.GetComponent<PratoScript>();
-                                PickItem(pickable);
-                                GameManager.removerPrato(pickable.gameObject);
-                                break;
+
+                                if(pickable.estaSujo){
+                                    pickable.sumir();
+                                    break;
+                                }
+
+                                else if(!pickable.servido){
+                                    PickItem(pickable);
+                                    GameManager.removerPrato(pickable.gameObject);
+                                    break;
+                                }
+                                
                             }
                             //Verifica se foi um cliente
                             else if (hit[i].collider.CompareTag("Cliente")){
@@ -176,6 +194,7 @@ public class PlayerController : MonoBehaviour
                                 leadClient(pickable);
                                 break;
                             }
+                            
                         }
                         
                     }
@@ -224,5 +243,10 @@ public class PlayerController : MonoBehaviour
             //Botão de interação
             action_button = true;
         }
+
+        if(Input.GetKeyDown(KeyCode.F3)){
+            debug = !debug;
+        }
+
     }
 }

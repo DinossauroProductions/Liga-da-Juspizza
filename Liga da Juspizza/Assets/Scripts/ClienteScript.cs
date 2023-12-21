@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Build;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClienteScript : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ClienteScript : MonoBehaviour
     private Vector2 targetPosition;
 
     private static Vector3 startPosition = new(10, -0.81f, 1.5f);
-    private Vector2 startPositionTarget = new(6.5f, -0.81f);
+    private static Vector2 startPositionTarget = new(6.5f, -0.81f);
 
 
     // Start is called before the first frame update
@@ -22,7 +23,7 @@ public class ClienteScript : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
 
         transform.position = startPosition.CloneViaFakeSerialization();
-        startPositionTarget += Vector2.up * Random.Range(-1, 1) / 2;
+        startPositionTarget.y += Random.Range(-1.0f, 1.0f) / 2;
         targetPosition = startPositionTarget.CloneViaFakeSerialization();
 
         RigidBody.isKinematic = false;
@@ -46,20 +47,30 @@ public class ClienteScript : MonoBehaviour
 
     public void colidirComMesa(MesaScript mesa){
 
-        Debug.Log("Colisão recebida");
+        //Debug.Log("Colisão recebida");
 
         if(transform.parent != null){
 
             //Debug.Log("transfowmda");
 
             transform.parent.parent.GetComponent<PlayerController>().DropClient(this);
+            transform.SetParent(mesa.transform.parent);
             mesa.GetComponent<MesaScript>().ocupado = true;
+            mesa.GetComponent<MesaScript>().resetarVariaveisMesa();
+            GameManager.solicitarPrato();
             transform.position = mesa.transform.position + new Vector3(0, 1f, 1f);
-
+            transform.
             GetComponent<Rigidbody2D>().simulated = false;
         }
         
         
+    }
+
+    public void sairDoRestaurante(){
+
+        GameManager.removerCliente(gameObject);
+        Destroy(gameObject);
+
     }
 
     

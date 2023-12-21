@@ -12,12 +12,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pratoPrefab;
     [SerializeField] private GameObject clientePrefab; 
     private static GameObject[] pratos;
-    public ArrayList clientes;
+    public static ArrayList clientes;
 
+    private static int pratosRequisitados = 0;
     private float pratoContador, pratoContadorMax;
     private float clienteContador, clienteContadorMax;
 
-    
+    //MesasController.mesas
+
+    // Pontuação
+
+    public static int pontuação = 0;
+
+
+    public static void solicitarPrato(){
+        pratosRequisitados++;
+    }
     
 
     // Start is called before the first frame update
@@ -38,31 +48,40 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         //adicionar os pratos
-        pratoContador += Time.fixedDeltaTime;
-        if(pratoContador >= pratoContadorMax){
+        if (pratosRequisitados > 0)
+        {
+            pratoContador += Time.fixedDeltaTime;
+            if (pratoContador >= pratoContadorMax)
+            {
 
-            Debug.Log("Tentar spawnar prato");
-            
-            pratoContador = 0;
-            pratoContadorMax = RandomNumberGenerator.GetInt32(6) + 6;
+                //Debug.Log("Tentar spawnar prato");
+                
 
-            for(int i = 0; i < pratos.Length; i++){
+                pratoContador = 0;
+                pratoContadorMax = RandomNumberGenerator.GetInt32(6) + 6;
 
-                if(pratos[i] == null){
+                for (int i = 0; i < pratos.Length; i++)
+                {
 
-                    GameObject pratoAdicionado = Instantiate(
-                        pratoPrefab, 
-                        determinarPosicaoPrato((uint) i), 
-                        Quaternion.identity
-                    );
+                    if (pratos[i] == null)
+                    {
 
-                    pratos[i] = pratoAdicionado;
-                    break;
+                        GameObject pratoAdicionado = Instantiate(
+                            pratoPrefab,
+                            determinarPosicaoPrato((uint)i),
+                            Quaternion.identity
+                        );
+
+                        pratos[i] = pratoAdicionado;
+                        pratosRequisitados--;
+                        break;
+                    }
+
                 }
 
             }
-
         }
+
 
         clienteContador += Time.fixedDeltaTime;
         if(clienteContador >= clienteContadorMax){
@@ -77,7 +96,6 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        //adicionar os clientes
     }
 
     public static void removerPrato(GameObject prato){
@@ -92,6 +110,12 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
+    }
+
+    public static void removerCliente(GameObject cliente){
+
+        clientes.Remove(cliente);
 
     }
 
