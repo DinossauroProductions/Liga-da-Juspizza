@@ -131,8 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261305935a23e0835bf684d5aa768995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pratoSujoSprite: {fileID: 21300000, guid: 3642e29502b630bacbed3a3b0465dbcb, type: 3}
+  pratoSujoSprite: {fileID: 21300000, guid: c594ff1390678a27b84584a258944054, type: 3}
   estaSujo: 0
+  servido: 0
 --- !u!50 &8087790223276131259
 Rigidbody2D:
   serializedVersion: 4
