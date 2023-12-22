@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
+
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -34,13 +28,28 @@ public class PlayerController : MonoBehaviour
     private Transform clientSlot;
     private ClienteScript followingClient = null;
 
-    private bool debug = false;
+    [SerializeField]
+    public Sprite[] sprites = new Sprite[4*4];
+
+    private enum direçãoAnimaçãoIndex{
+        CIMA = 2,
+        BAIXO = 0,
+        ESQUERDA = 3,
+        DIREITA = 1
+    }
+    private direçãoAnimaçãoIndex direçãoAnimação = direçãoAnimaçãoIndex.BAIXO;
+    private int animaçãoStep = 0;
+    private SpriteRenderer spriteRenderer;
+    private bool andando = false;
+
+    private double animationCounter = 0, animationCounterMax = 140;
 
     // Start is called before the first frame update
     void Start()
     {
         transform = GetComponent<Transform>();
         body = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         angulo = new Vector2();
     }
 
@@ -49,6 +58,40 @@ public class PlayerController : MonoBehaviour
     {
         ReceberInput();
         ProcessarInput();
+        Animar();
+    }
+
+    private void Animar(){
+
+
+        // Incrementar animações
+        animationCounter += Time.deltaTime * 1000;
+
+        if(animationCounter >= animationCounterMax){
+
+            //Debug.Log("Frame de animação");
+
+            animationCounter -= animationCounterMax;
+
+            if(andando){
+
+                // Se o player estiver se movendo, a animação acontece
+                animaçãoStep++;
+
+                if(animaçãoStep >= 4){
+                    animaçãoStep = 0;
+
+                }
+                spriteRenderer.sprite = sprites[(int) direçãoAnimação * 4 + animaçãoStep];
+
+            }
+            else{
+
+                spriteRenderer.sprite = sprites[(int) direçãoAnimação * 4];
+
+            }
+
+        }
 
     }
 
@@ -110,23 +153,32 @@ public class PlayerController : MonoBehaviour
     void ProcessarInput(){
 
         angulo = Vector2.zero;
+        andando = false;
 
         // Transformar os botões pressionados em um vetor de direção
         if(up){
             angulo.y += 1;
             up = false;
+            andando = true;
+            direçãoAnimação = direçãoAnimaçãoIndex.CIMA;
         }
         if(down){
             angulo.y -= 1;
             down = false;
+            andando = true;
+            direçãoAnimação = direçãoAnimaçãoIndex.BAIXO;
         }
         if(left){
             angulo.x -= 1;
             left = false;
+            andando = true;
+            direçãoAnimação = direçãoAnimaçãoIndex.ESQUERDA;
         }
         if(right){
             angulo.x += 1;
             right = false;
+            andando = true;
+            direçãoAnimação = direçãoAnimaçãoIndex.DIREITA;
         }
 
         angulo.Normalize();
@@ -244,9 +296,6 @@ public class PlayerController : MonoBehaviour
             action_button = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.F3)){
-            debug = !debug;
-        }
 
     }
 }

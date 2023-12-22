@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f63a0675fa9dffab9b193dc7fec73eb1
+guid: 72fdac940154cbd0787460dec8a520de
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NPC_test_purple_suit_0
+      name: PlayerSprite_0
       rect:
         serializedVersion: 2
         x: 1
@@ -131,20 +131,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a26b5f739b709ed969d6c2ce8237f9ea
-      internalID: -33707107
+      spriteID: f3c101df73d76267fa484ca7ff17612f
+      internalID: 1276866592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_1
+      name: PlayerSprite_1
       rect:
         serializedVersion: 2
         x: 17
@@ -152,20 +152,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 734c14439c9d041eaae598e60a66adb3
-      internalID: -289143856
+      spriteID: 66a7a9f8761601ac6b369a495516175d
+      internalID: -1492773518
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_2
+      name: PlayerSprite_2
       rect:
         serializedVersion: 2
         x: 33
@@ -173,20 +173,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09d708108f269e6e18a07b2c1db90ba2
-      internalID: 451732004
+      spriteID: 7d8746985cb2630c6a45d5f11d5e8714
+      internalID: 387546465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_3
+      name: PlayerSprite_3
       rect:
         serializedVersion: 2
         x: 49
@@ -194,20 +194,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aef0ed82ba65d858991a21ff973c2d15
-      internalID: -98327355
+      spriteID: 68594d68ce7d2a350990c3f199a07c45
+      internalID: 1685206459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_4
+      name: PlayerSprite_4
       rect:
         serializedVersion: 2
         x: 1
@@ -215,20 +215,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f73ba986601c76699d6e0c0a6ea00bc
-      internalID: 1138755527
+      spriteID: 22ddd967aa975c33b808c4cc9d8c3b0a
+      internalID: -1083625018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_5
+      name: PlayerSprite_5
       rect:
         serializedVersion: 2
         x: 17
@@ -236,20 +236,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7424cb1548fdbd9e8c20a2ee0dbd1c2
-      internalID: 1726983938
+      spriteID: 0256f5838a34f4022b3dba88eb73066b
+      internalID: 2146071468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_6
+      name: PlayerSprite_6
       rect:
         serializedVersion: 2
         x: 33
@@ -257,20 +257,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a03a0c6174e0dc46c8898e78270bcd64
-      internalID: -898686629
+      spriteID: 73235d5762d6ddf2cab1b39f2be115e4
+      internalID: -174810797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_7
+      name: PlayerSprite_7
       rect:
         serializedVersion: 2
         x: 49
@@ -278,20 +278,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0539715538014a95389cd4a9815a1b93
-      internalID: -1853825028
+      spriteID: 5c9d9c297e229b657a7bc7774739e11b
+      internalID: 395736577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_8
+      name: PlayerSprite_8
       rect:
         serializedVersion: 2
         x: 1
@@ -299,20 +299,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6c35d0dcfe0c89af9fcd7d5dc83059e
-      internalID: -9870501
+      spriteID: 36375cd662ac4f2f09a97a0630027652
+      internalID: -776029286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_9
+      name: PlayerSprite_9
       rect:
         serializedVersion: 2
         x: 17
@@ -320,20 +320,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed74f109fc04d2952897b9aec02a5628
-      internalID: 605899527
+      spriteID: 7a11f7364124e873fab27ab60e97cd77
+      internalID: 1401170812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_10
+      name: PlayerSprite_10
       rect:
         serializedVersion: 2
         x: 33
@@ -341,20 +341,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9242e28ebda263bd69d025ae297a8854
-      internalID: 724927346
+      spriteID: 59ca5bce5fdce69a4a176cbf5c4014f6
+      internalID: 377887925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_11
+      name: PlayerSprite_11
       rect:
         serializedVersion: 2
         x: 49
@@ -362,20 +362,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66cce1cdcc54416b5a4d45cca8e40ecc
-      internalID: 532878425
+      spriteID: cbcd1de26fdbf01f2adb8893a71f88e5
+      internalID: -1770676182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_12
+      name: PlayerSprite_12
       rect:
         serializedVersion: 2
         x: 1
@@ -383,20 +383,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c86d7b6e3b5d992f9b6c2089d2f58565
-      internalID: -1837954497
+      spriteID: b22fc1ef31000727296c96e04c5e3771
+      internalID: 2007610946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_13
+      name: PlayerSprite_13
       rect:
         serializedVersion: 2
         x: 17
@@ -404,20 +404,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd0e30e02e89b023497a2bcb89627882
-      internalID: 1015998434
+      spriteID: ba0c7ee0cf9256cf4bb3e7cbaf4bba43
+      internalID: 1795621853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_14
+      name: PlayerSprite_14
       rect:
         serializedVersion: 2
         x: 33
@@ -425,20 +425,20 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45623993c05613759b2e29e7558b03f6
-      internalID: -1614795768
+      spriteID: c58c97406eb2681d9bf0e6c9a247b05f
+      internalID: -726194539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_test_purple_suit_15
+      name: PlayerSprite_15
       rect:
         serializedVersion: 2
         x: 49
@@ -446,14 +446,14 @@ TextureImporter:
         width: 14
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 162913fce8794f313aa389af537c0801
-      internalID: -1507935135
+      spriteID: ff97aff3dfcb3cfdbb77833329ffc3d9
+      internalID: -266640837
       vertices: []
       indices: 
       edges: []
@@ -469,22 +469,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      NPC_test_purple_suit_0: -33707107
-      NPC_test_purple_suit_1: -289143856
-      NPC_test_purple_suit_10: 724927346
-      NPC_test_purple_suit_11: 532878425
-      NPC_test_purple_suit_12: -1837954497
-      NPC_test_purple_suit_13: 1015998434
-      NPC_test_purple_suit_14: -1614795768
-      NPC_test_purple_suit_15: -1507935135
-      NPC_test_purple_suit_2: 451732004
-      NPC_test_purple_suit_3: -98327355
-      NPC_test_purple_suit_4: 1138755527
-      NPC_test_purple_suit_5: 1726983938
-      NPC_test_purple_suit_6: -898686629
-      NPC_test_purple_suit_7: -1853825028
-      NPC_test_purple_suit_8: -9870501
-      NPC_test_purple_suit_9: 605899527
+      PlayerSprite_0: 1276866592
+      PlayerSprite_1: -1492773518
+      PlayerSprite_10: 377887925
+      PlayerSprite_11: -1770676182
+      PlayerSprite_12: 2007610946
+      PlayerSprite_13: 1795621853
+      PlayerSprite_14: -726194539
+      PlayerSprite_15: -266640837
+      PlayerSprite_2: 387546465
+      PlayerSprite_3: 1685206459
+      PlayerSprite_4: -1083625018
+      PlayerSprite_5: 2146071468
+      PlayerSprite_6: -174810797
+      PlayerSprite_7: 395736577
+      PlayerSprite_8: -776029286
+      PlayerSprite_9: 1401170812
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
