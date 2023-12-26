@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
                 
 
                 pratoContador = 0;
-                pratoContadorMax = RandomNumberGenerator.GetInt32(6) + 6;
+                pratoContadorMax = RandomNumberGenerator.GetInt32(3) + 4; 
 
                 for (int i = 0; i < pratos.Length; i++)
                 {
@@ -121,5 +121,9 @@ public class GameManager : MonoBehaviour
 
     private Vector2 determinarPosicaoPrato(uint n){
         return new Vector2(-7.5f, 4.1f + n * -1.6f);
+    }
+
+    public void atualizarPontuação(){
+
     }
 }

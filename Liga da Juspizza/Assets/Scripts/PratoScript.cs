@@ -69,7 +69,7 @@ public class PratoScript : MonoBehaviour
                 //GetComponent<Rigidbody2D>().simulated = false;
 
                 //dizer para a mesa que ela foi servida!
-                mesa.servida = true;
+                mesa.servirPrato(this);
                 servido = true;
 
             }
